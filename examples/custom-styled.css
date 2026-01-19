@@ -1,0 +1,10 @@
+.custom-tooltip {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.custom-overlay {
+  background: rgba(0, 0, 0, 0.7) !important;
+}

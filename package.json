@@ -1,0 +1,97 @@
+{
+  "name": "@tour-guide/react",
+  "version": "1.0.0",
+  "description": "A modern, accessible, and performant React tour/onboarding library. A better alternative to react-joyride with zero legacy peer dependency issues.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "author": "bilalmohib7896@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bilalmohib7896/react-tour-guide.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bilalmohib7896/react-tour-guide/issues"
+  },
+  "homepage": "https://github.com/bilalmohib7896/react-tour-guide#readme",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.esm.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./styles.css": "./dist/tour.css",
+    "./tour.css": "./dist/tour.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "prepublishOnly": "npm run build && npm run type-check"
+  },
+  "keywords": [
+    "react",
+    "tour",
+    "onboarding",
+    "walkthrough",
+    "guide",
+    "tutorial",
+    "joyride",
+    "user-guide",
+    "product-tour",
+    "spotlight",
+    "tooltip",
+    "accessible",
+    "typescript",
+    "react19",
+    "react18"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "jsdom": "^25.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.0.0"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

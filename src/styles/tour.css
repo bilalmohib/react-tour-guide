@@ -1,0 +1,51 @@
+/**
+ * Tour Guide Styles
+ * Import this file in your application: import '@tour-guide/react/styles'
+ */
+
+.tour-overlay {
+  transition: opacity 0.3s ease;
+}
+
+.tour-tooltip {
+  animation: tour-tooltip-fade-in 0.3s ease;
+}
+
+@keyframes tour-tooltip-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tour-button-primary,
+.tour-button-back,
+.tour-button-skip {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tour-button-primary:focus-visible,
+.tour-button-back:focus-visible,
+.tour-button-skip:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .tour-tooltip {
+    animation: none;
+  }
+
+  .tour-overlay {
+    transition: none;
+  }
+}

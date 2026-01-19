@@ -1,0 +1,16 @@
+node_modules
+src
+examples
+tests
+*.tsbuildinfo
+.DS_Store
+.env
+.env.local
+coverage
+.idea
+.vscode
+*.log
+tsconfig.json
+tsup.config.ts
+.eslintrc.json
+.gitignore
