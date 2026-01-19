@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import type { TourProps, TourStep, TooltipPosition, TourStatus, CallbackType } from "../types";
+import type { TourProps, TourStep, TooltipPosition } from "../types";
 import { calculateTooltipPosition, scrollToElement } from "../utils/position";
 import { Spotlight } from "./Spotlight";
 import { Tooltip } from "./Tooltip";
@@ -18,7 +18,7 @@ export function Tour({
   steps,
   run = false,
   stepIndex = 0,
-  continuous = true,
+  continuous: _continuous = true,
   showProgress = true,
   showSkipButton = true,
   showBackButton = true,

@@ -1,5 +1,4 @@
 import * as React from "react";
-import type { TourStep } from "../types";
 
 interface SpotlightProps {
   element: HTMLElement;

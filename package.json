@@ -9,12 +9,12 @@
   "author": "bilalmohib7896@gmail.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bilalmohib7896/react-tour-guide.git"
+    "url": "https://github.com/bilalmohib/react-tour-guide.git"
   },
   "bugs": {
-    "url": "https://github.com/bilalmohib7896/react-tour-guide/issues"
+    "url": "https://github.com/bilalmohib/react-tour-guide/issues"
   },
-  "homepage": "https://github.com/bilalmohib7896/react-tour-guide#readme",
+  "homepage": "https://github.com/bilalmohib/react-tour-guide#readme",
   "exports": {
     ".": {
       "import": {
