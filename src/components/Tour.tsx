@@ -5,7 +5,6 @@ import type { TourProps, TourStep, TooltipPosition } from "../types";
 import { calculateTooltipPosition, scrollToElement } from "../utils/position";
 import { Spotlight } from "./Spotlight";
 import { Tooltip } from "./Tooltip";
-import { cn } from "../utils/cn";
 
 const DEFAULT_LABELS = {
   next: "Next",
@@ -270,14 +269,16 @@ export function Tour({
       <div
         ref={overlayRef}
         role="presentation"
-        className={cn(
-          "tour-overlay",
-          "fixed inset-0 transition-opacity",
-          className?.overlay
-        )}
+        className="tour-overlay"
         style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
           backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})`,
           zIndex: zIndex - 1,
+          transition: "opacity 0.3s ease",
         }}
         onClick={handleOverlayClick}
         aria-hidden="true"

@@ -1,6 +1,5 @@
 import * as React from "react";
 import type { TourStep, TooltipPosition, TourProps } from "../types";
-import { cn } from "../utils/cn";
 
 interface TooltipProps {
   step: TourStep;
@@ -22,6 +21,74 @@ interface TooltipProps {
   className?: TourProps["className"];
 }
 
+// All styles as inline to work without Tailwind
+const styles = {
+  tooltip: {
+    position: "fixed" as const,
+    backgroundColor: "#ffffff",
+    borderRadius: "8px",
+    padding: "20px",
+    minWidth: "300px",
+    maxWidth: "400px",
+    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+  },
+  progress: {
+    marginBottom: "12px",
+    fontSize: "14px",
+    color: "#6b7280",
+  },
+  content: {
+    marginBottom: "16px",
+  },
+  actions: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "8px",
+  },
+  buttonGroup: {
+    display: "flex",
+    gap: "8px",
+  },
+  buttonGroupRight: {
+    display: "flex",
+    gap: "8px",
+    marginLeft: "auto",
+  },
+  buttonBack: {
+    padding: "6px 12px",
+    fontSize: "14px",
+    fontWeight: 500,
+    borderRadius: "6px",
+    border: "1px solid",
+    backgroundColor: "#ffffff",
+    cursor: "pointer",
+    transition: "all 0.2s",
+  },
+  buttonSkip: {
+    padding: "6px 12px",
+    fontSize: "14px",
+    fontWeight: 500,
+    borderRadius: "6px",
+    border: "none",
+    backgroundColor: "transparent",
+    color: "#6b7280",
+    cursor: "pointer",
+    transition: "all 0.2s",
+  },
+  buttonPrimary: {
+    padding: "6px 16px",
+    fontSize: "14px",
+    fontWeight: 500,
+    borderRadius: "6px",
+    border: "none",
+    color: "#ffffff",
+    cursor: "pointer",
+    transition: "all 0.2s",
+  },
+};
+
 export function Tooltip({
   step,
   position,
@@ -39,7 +106,6 @@ export function Tooltip({
   primaryColor,
   zIndex,
   labels,
-  className,
 }: TooltipProps) {
   const tooltipRef = React.useRef<HTMLDivElement>(null);
 
@@ -50,12 +116,9 @@ export function Tooltip({
       aria-modal="true"
       aria-labelledby="tour-tooltip-title"
       aria-describedby="tour-tooltip-content"
-      className={cn(
-        "tour-tooltip",
-        "fixed bg-white rounded-lg shadow-2xl p-5 min-w-[300px] max-w-[400px]",
-        className?.tooltip
-      )}
+      className="tour-tooltip"
       style={{
+        ...styles.tooltip,
         top: `${position.top}px`,
         left: `${position.left}px`,
         zIndex,
@@ -63,29 +126,29 @@ export function Tooltip({
     >
       {/* Progress */}
       {showProgress && totalSteps > 1 && (
-        <div className="tour-progress mb-3 text-sm text-gray-500">
+        <div className="tour-progress" style={styles.progress}>
           Step {currentIndex + 1} of {totalSteps}
         </div>
       )}
 
       {/* Content */}
-      <div id="tour-tooltip-content" className="tour-content mb-4">
+      <div id="tour-tooltip-content" className="tour-content" style={styles.content}>
         {step.content}
       </div>
 
       {/* Actions */}
-      <div className="tour-actions flex items-center justify-between gap-2">
-        <div className="flex gap-2">
+      <div className="tour-actions" style={styles.actions}>
+        <div style={styles.buttonGroup}>
           {!isFirstStep && showBackButton && (
             <button
               type="button"
               onClick={onBack}
-              className={cn(
-                "tour-button-back",
-                "px-3 py-1.5 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer",
-                className?.buttonSecondary
-              )}
-              style={{ color: primaryColor, borderColor: primaryColor }}
+              className="tour-button-back"
+              style={{
+                ...styles.buttonBack,
+                color: primaryColor,
+                borderColor: primaryColor,
+              }}
               aria-label="Go to previous step"
             >
               ← {labels.back}
@@ -93,16 +156,13 @@ export function Tooltip({
           )}
         </div>
 
-        <div className="flex gap-2 ml-auto">
+        <div style={styles.buttonGroupRight}>
           {showSkipButton && (
             <button
               type="button"
               onClick={onSkip}
-              className={cn(
-                "tour-button-skip",
-                "px-3 py-1.5 text-sm font-medium rounded-md text-gray-500 hover:text-gray-700 transition-colors cursor-pointer",
-                className?.button
-              )}
+              className="tour-button-skip"
+              style={styles.buttonSkip}
               aria-label="Skip tour"
             >
               {labels.skip}
@@ -111,12 +171,9 @@ export function Tooltip({
           <button
             type="button"
             onClick={isLastStep ? onFinish : onNext}
-            className={cn(
-              "tour-button-primary",
-              "px-4 py-1.5 text-sm font-medium rounded-md text-white transition-colors cursor-pointer",
-              className?.buttonPrimary
-            )}
+            className="tour-button-primary"
             style={{
+              ...styles.buttonPrimary,
               backgroundColor: primaryColor,
             }}
             aria-label={isLastStep ? "Finish tour" : "Go to next step"}
