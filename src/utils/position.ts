@@ -11,9 +11,8 @@ export function calculateTooltipPosition(
   spacing: number = 10,
   offset?: { top?: number; left?: number }
 ): TooltipPosition {
+  // getBoundingClientRect returns viewport-relative coordinates (perfect for position: fixed)
   const rect = element.getBoundingClientRect();
-  const scrollX = window.scrollX || window.pageXOffset;
-  const scrollY = window.scrollY || window.pageYOffset;
 
   let finalPlacement: "top" | "bottom" | "left" | "right" = "bottom";
   let top = 0;
@@ -39,8 +38,8 @@ export function calculateTooltipPosition(
     }
   } else if (placement === "center") {
     // Center placement - position in center of viewport
-    top = window.innerHeight / 2 + scrollY - tooltipHeight / 2;
-    left = window.innerWidth / 2 + scrollX - tooltipWidth / 2;
+    top = window.innerHeight / 2 - tooltipHeight / 2;
+    left = window.innerWidth / 2 - tooltipWidth / 2;
     finalPlacement = "bottom"; // Default placement type
   } else {
     finalPlacement = placement;
@@ -49,20 +48,20 @@ export function calculateTooltipPosition(
   if (placement !== "center") {
     switch (finalPlacement) {
       case "top":
-        top = rect.top + scrollY - tooltipHeight - spacing;
-        left = rect.left + scrollX + rect.width / 2 - tooltipWidth / 2;
+        top = rect.top - tooltipHeight - spacing;
+        left = rect.left + rect.width / 2 - tooltipWidth / 2;
         break;
       case "bottom":
-        top = rect.bottom + scrollY + spacing;
-        left = rect.left + scrollX + rect.width / 2 - tooltipWidth / 2;
+        top = rect.bottom + spacing;
+        left = rect.left + rect.width / 2 - tooltipWidth / 2;
         break;
       case "left":
-        top = rect.top + scrollY + rect.height / 2 - tooltipHeight / 2;
-        left = rect.left + scrollX - tooltipWidth - spacing;
+        top = rect.top + rect.height / 2 - tooltipHeight / 2;
+        left = rect.left - tooltipWidth - spacing;
         break;
       case "right":
-        top = rect.top + scrollY + rect.height / 2 - tooltipHeight / 2;
-        left = rect.right + scrollX + spacing;
+        top = rect.top + rect.height / 2 - tooltipHeight / 2;
+        left = rect.right + spacing;
         break;
     }
   }
@@ -73,11 +72,11 @@ export function calculateTooltipPosition(
     left += offset.left || 0;
   }
 
-  // Keep tooltip within viewport bounds
+  // Keep tooltip within viewport bounds (viewport-relative for position: fixed)
   const minLeft = 10;
-  const maxLeft = window.innerWidth + scrollX - tooltipWidth - 10;
+  const maxLeft = window.innerWidth - tooltipWidth - 10;
   const minTop = 10;
-  const maxTop = window.innerHeight + scrollY - tooltipHeight - 10;
+  const maxTop = window.innerHeight - tooltipHeight - 10;
 
   left = Math.max(minLeft, Math.min(left, maxLeft));
   top = Math.max(minTop, Math.min(top, maxTop));
