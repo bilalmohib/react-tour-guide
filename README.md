@@ -1,8 +1,8 @@
-# @tour-guide/react
+# @bilalmohib7896/react-tour-guide
 
 > A modern, accessible, and performant React tour/onboarding library. A better alternative to react-joyride with zero legacy peer dependency issues.
 
-[![npm version](https://img.shields.io/npm/v/@tour-guide/react.svg)](https://www.npmjs.com/package/@tour-guide/react)
+[![npm version](https://img.shields.io/npm/v/@bilalmohib7896/react-tour-guide.svg)](https://www.npmjs.com/package/@bilalmohib7896/react-tour-guide)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 
@@ -23,18 +23,18 @@
 ## 📦 Installation
 
 ```bash
-npm install @tour-guide/react
+npm install @bilalmohib7896/react-tour-guide
 # or
-yarn add @tour-guide/react
+yarn add @bilalmohib7896/react-tour-guide
 # or
-pnpm add @tour-guide/react
+pnpm add @bilalmohib7896/react-tour-guide
 ```
 
 ## 🚀 Quick Start
 
 ```tsx
-import { Tour } from "@tour-guide/react";
-import "@tour-guide/react/styles"; // Optional: import default styles
+import { Tour } from "@bilalmohib7896/react-tour-guide";
+import "@bilalmohib7896/react-tour-guide/styles.css"; // Optional: import default styles
 
 function App() {
   const [run, setRun] = useState(false);
@@ -74,7 +74,7 @@ function App() {
 ### Basic Usage
 
 ```tsx
-import { Tour } from "@tour-guide/react";
+import { Tour } from "@bilalmohib7896/react-tour-guide";
 
 const steps = [
   {
@@ -113,7 +113,7 @@ function MyComponent() {
 
 ```tsx
 import { useRef } from "react";
-import { Tour } from "@tour-guide/react";
+import { Tour } from "@bilalmohib7896/react-tour-guide";
 
 function MyComponent() {
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -301,7 +301,7 @@ interface TourCallbackProps {
 
 ## 🎯 Comparison with react-joyride
 
-| Feature | @tour-guide/react | react-joyride |
+| Feature | @bilalmohib7896/react-tour-guide | react-joyride |
 |---------|------------------|---------------|
 | Modern Dependencies | ✅ Yes | ❌ Requires --legacy-peer-deps |
 | TypeScript Support | ✅ Full | ⚠️ Partial |

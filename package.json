@@ -1,5 +1,5 @@
 {
-  "name": "@tour-guide/react",
+  "name": "@bilalmohib7896/react-tour-guide",
   "version": "1.0.0",
   "description": "A modern, accessible, and performant React tour/onboarding library. A better alternative to react-joyride with zero legacy peer dependency issues.",
   "main": "./dist/index.js",
@@ -9,7 +9,7 @@
   "author": "bilalmohib7896@gmail.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bilalmohib/react-tour-guide.git"
+    "url": "git+https://github.com/bilalmohib/react-tour-guide.git"
   },
   "bugs": {
     "url": "https://github.com/bilalmohib/react-tour-guide/issues"
@@ -32,7 +32,8 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "build": "tsup",
@@ -94,5 +95,8 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

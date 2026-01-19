@@ -1,5 +1,5 @@
 /**
- * @tour-guide/react
+ * @bilalmohib7896/react-tour-guide
  * A modern, accessible, and performant React tour/onboarding library
  */
 
