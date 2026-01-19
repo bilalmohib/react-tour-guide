@@ -23,6 +23,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*", "examples/**/*"],
-  "exclude": ["node_modules", "dist", "tests"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "tests", "examples", "tsup.config.ts", "vitest.config.ts"]
 }

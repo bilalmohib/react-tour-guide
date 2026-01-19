@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { defineConfig } from "tsup";
 import { copyFileSync } from "fs";
 import { join } from "path";
